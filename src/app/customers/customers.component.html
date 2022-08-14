@@ -10,15 +10,23 @@
 
 <div *ngIf="selectedCustomer">
   <h2>{{selectedCustomer.firstName | uppercase}} Details</h2>
-  <div>id: {{selectedCustomer.id}}</div>
-  <div>first name: {{selectedCustomer.firstName}}</div>
+  <div>Id: {{selectedCustomer.id}}</div>
+  <div>First name: {{selectedCustomer.firstName}}</div>
   <!--<div>
     <label for="customer-firstname">first name: </label>
     <input id="customer-firstname" [(ngModel)]="selectedCustomer.firstName" placeholder="firstname">
   </div>-->
-  <div>last name: {{selectedCustomer.lastName}}</div>
-  <div>email: {{selectedCustomer.email}}</div>
-  <div>accounts: {{selectedCustomer.accounts}}</div>
+  <div>Last name: {{selectedCustomer.lastName}}</div>
+  <div>Email: {{selectedCustomer.email}}</div>
+  <div>Accounts:</div>
+  <div *ngFor="let account of selectedCustomer.accounts">
+    <ol>
+      <div>Account Number: {{account.id}}</div>
+      <div>Type: {{account.type}}</div>
+      <div>Balance: {{account.balance}}</div>
+      <div>Currency:{{account.currency}}</div>
+    </ol>
+  </div>
 
 </div>
 

@@ -1,9 +1,9 @@
-import {AccountsComponent} from "../accounts/accounts.component";
+import {Account} from "../accounts/account";
 
 export interface Customer {
   id: number;
   firstName: string;
   lastName: string;
   email: string;
-  accounts: AccountsComponent[];
+  accounts: Account[];
 }
