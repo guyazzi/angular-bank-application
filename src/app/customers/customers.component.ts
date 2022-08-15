@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from './customer';
 import {CustomerService} from "../services/customer.service";
+import {Account} from "../accounts/account";
 
 @Component({
   selector: 'app-customers',
@@ -16,6 +17,8 @@ export class CustomersComponent implements OnInit {
   }
 
   customers: Customer[] = [];
+  customerById: Customer | undefined;
+  account: Account[] = [];
 
   constructor(private customerService: CustomerService) {
   }
@@ -23,6 +26,16 @@ export class CustomersComponent implements OnInit {
   getCustomers(): void {
     this.customerService.getCustomers()
       .subscribe(customers => this.customers = customers);
+  }
+
+  getCustomerById(id: string): void {
+    this.customerService.getCustomer(id.toString())
+      .subscribe(customer => this.customerById = customer);
+  }
+
+  getCustomerAccounts(id: string): void {
+    this.customerService.getCustomerAccounts(id.toString())
+      .subscribe(account => this.account = account);
   }
 
   ngOnInit(): void {

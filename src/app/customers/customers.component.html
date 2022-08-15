@@ -1,32 +1,75 @@
-<h2>Customers</h2>
-<ul class="customers">
-  <li *ngFor="let customer of customers">
-    <button type="button" (click)="onSelect(customer)" [class.selected]="customer === selectedCustomer">
-      <span class="badge">{{customer.id}} </span>
-      <span class="name">{{customer.firstName}}</span>
+<table style="background-color: lightskyblue;">
+  <td style="width: 33%">
+    <h2>Customers</h2>
+    <ul class="customers">
+      <li *ngFor="let customer of customers">
+        <button type="button" (click)="onSelect(customer)" [class.selected]="customer === selectedCustomer">
+          <span class="badge">{{customer.id}} </span>
+          <span class="name">{{customer.firstName}}</span>
+        </button>
+      </li>
+    </ul>
+
+    <div *ngIf="selectedCustomer">
+      <h2>{{selectedCustomer.firstName | uppercase}} Details</h2>
+      <div>Id: {{selectedCustomer.id}}</div>
+      <div>First name: {{selectedCustomer.firstName}}</div>
+      <div>Last name: {{selectedCustomer.lastName}}</div>
+      <div>Email: {{selectedCustomer.email}}</div>
+      <div>Accounts:</div>
+      <div *ngFor="let account of selectedCustomer.accounts">
+        <ol>
+          <div>Account Number: {{account.id}}</div>
+          <div>Type: {{account.type}}</div>
+          <div>Balance: {{account.balance}}</div>
+          <div>Currency:{{account.currency}}</div>
+        </ol>
+      </div>
+
+    </div>
+  </td>
+
+  <td style="width: 33%">
+    <h2>Get Customer by ID</h2>
+    <button type="button" (click)="getCustomerById(customerId.value)" [class.selected]="customerById === customerById">
+      Get Customer By Id
     </button>
-  </li>
-</ul>
+    <input type="number" id="customerId" #customerId placeholder="customer id">
+    <div *ngIf="customerById">
+      <div>First name: {{customerById.firstName}}</div>
+      <div>Last name: {{customerById.lastName}}</div>
+      <div>Email: {{customerById.email}}</div>
+      <div>Accounts:</div>
+      <div *ngFor="let account of customerById.accounts">
+        <ol>
+          <div>Account Number: {{account.id}}</div>
+          <div>Type: {{account.type}}</div>
+          <div>Balance: {{account.balance}}</div>
+          <div>Currency:{{account.currency}}</div>
+        </ol>
+      </div>
+    </div>
+  </td>
 
-<div *ngIf="selectedCustomer">
-  <h2>{{selectedCustomer.firstName | uppercase}} Details</h2>
-  <div>Id: {{selectedCustomer.id}}</div>
-  <div>First name: {{selectedCustomer.firstName}}</div>
-  <!--<div>
-    <label for="customer-firstname">first name: </label>
-    <input id="customer-firstname" [(ngModel)]="selectedCustomer.firstName" placeholder="firstname">
-  </div>-->
-  <div>Last name: {{selectedCustomer.lastName}}</div>
-  <div>Email: {{selectedCustomer.email}}</div>
-  <div>Accounts:</div>
-  <div *ngFor="let account of selectedCustomer.accounts">
-    <ol>
-      <div>Account Number: {{account.id}}</div>
-      <div>Type: {{account.type}}</div>
-      <div>Balance: {{account.balance}}</div>
-      <div>Currency:{{account.currency}}</div>
-    </ol>
-  </div>
 
-</div>
+  <td>
+    <h2>Get Customer Accounts</h2>
+    <button type="button" (click)="getCustomerAccounts(customerId1.value)" [class.selected]="account === account">Get
+      Customer Accounts
+    </button>
+    <input type="number" id="customerId1" #customerId1 placeholder="customer id">
+    <div *ngIf="account">
+      <div *ngFor="let account of account">
+        <ol>
+          <div>Account Number: {{account.id}}</div>
+          <div>Type: {{account.type}}</div>
+          <div>Balance: {{account.balance}}</div>
+          <div>Currency:{{account.currency}}</div>
+        </ol>
+      </div>
+    </div>
+  </td>
+
+
+</table>
 

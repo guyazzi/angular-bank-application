@@ -1,16 +1,35 @@
-<h2>Accounts</h2>
-<ul class="accounts">
-  <li *ngFor="let account of accounts">
-    <button type="button" (click)="onSelect(account)" [class.selected]="account === selectedAccount">
-      <span class="badge">{{account.id}} </span>
-    </button>
-  </li>
-</ul>
+<table style="background-color: lavenderblush ">
+  <td style="width: 50%">
+    <h2>All Accounts</h2>
+    <ul class="accounts">
+      <li *ngFor="let account of accounts">
+        <button type="button" (click)="onSelect(account)" [class.selected]="account === selectedAccount">
+          <span class="badge">{{account.id}} </span>
+        </button>
+      </li>
+    </ul>
 
-<div *ngIf="selectedAccount">
-  <h2>{{selectedAccount.id}} Details</h2>
-  <div>type: {{selectedAccount.type}}</div>
-  <div>currency: {{selectedAccount.currency}}</div>
-  <div>balance: {{selectedAccount.balance}}</div>
-</div>
+    <div *ngIf="selectedAccount">
+      <h2>{{selectedAccount.id}} Details</h2>
+      <div>type: {{selectedAccount.type}}</div>
+      <div>currency: {{selectedAccount.currency}}</div>
+      <div>balance: {{selectedAccount.balance}}</div>
+    </div>
+  </td>
+
+  <td>
+    <h2>Get Account by ID</h2>
+    <button type="button" (click)="getAccountById(accountId.value)" [class.selected]="accountById === accountById" >Get Account By Id</button>
+    <input type="number" id="accountId" #accountId placeholder="account id">
+    <div *ngIf="accountById">
+      <div>Account Id: {{accountById.id}}</div>
+      <div>type: {{accountById.type}}</div>
+      <div>currency: {{accountById.currency}}</div>
+      <div>balance: {{accountById.balance}}</div>
+    </div>
+  </td>
+</table>
+
+
+
 

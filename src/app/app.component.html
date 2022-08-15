@@ -1,7 +1,13 @@
 <h1>{{title}}</h1>
 <nav>
-  <a routerLink="/customers">Customers</a>
-  <a routerLink="/accounts"> Accounts</a>
+  <table>
+  <td style="width:80%">
+    <button routerLink="/customers">Customers</button>
+  </td>
+  <td>
+    <button routerLink="/accounts"> Accounts</button>
+  </td>
+  </table>
 </nav>
 <router-outlet></router-outlet>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AccountService} from "../services/account.service";
 import {Account} from "./account";
 
@@ -16,6 +16,7 @@ export class AccountsComponent implements OnInit {
   }
 
   accounts: Account[] = [];
+  accountById: Account | undefined;
 
   constructor(private accountService: AccountService) {
   }
@@ -23,6 +24,11 @@ export class AccountsComponent implements OnInit {
   getAccounts(): void {
     this.accountService.getAccounts()
       .subscribe(accounts => this.accounts = accounts);
+  }
+
+  getAccountById(id: string): void {
+    this.accountService.getAccount(id.toString())
+      .subscribe(account => this.accountById = account);
   }
 
   ngOnInit(): void {
