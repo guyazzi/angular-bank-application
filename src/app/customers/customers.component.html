@@ -20,7 +20,7 @@
       <div *ngFor="let account of selectedCustomer.accounts">
         <ol>
           <div>Account Number: {{account.id}}</div>
-          <div>Type: {{account.type}}</div>
+          <div>Type: {{account.type.type}}</div>
           <div>Balance: {{account.balance}}</div>
           <div>Currency:{{account.currency}}</div>
         </ol>
@@ -43,7 +43,7 @@
       <div *ngFor="let account of customerById.accounts">
         <ol>
           <div>Account Number: {{account.id}}</div>
-          <div>Type: {{account.type}}</div>
+          <div>Type: {{account.type.type}}</div>
           <div>Balance: {{account.balance}}</div>
           <div>Currency:{{account.currency}}</div>
         </ol>
@@ -62,7 +62,7 @@
       <div *ngFor="let account of account">
         <ol>
           <div>Account Number: {{account.id}}</div>
-          <div>Type: {{account.type}}</div>
+          <div>Type: {{account.type.type}}</div>
           <div>Balance: {{account.balance}}</div>
           <div>Currency:{{account.currency}}</div>
         </ol>

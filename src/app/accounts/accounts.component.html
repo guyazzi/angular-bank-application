@@ -11,7 +11,7 @@
 
     <div *ngIf="selectedAccount">
       <h2>{{selectedAccount.id}} Details</h2>
-      <div>type: {{selectedAccount.type}}</div>
+      <div>Type: {{selectedAccount.type.type}}</div>
       <div>currency: {{selectedAccount.currency}}</div>
       <div>balance: {{selectedAccount.balance}}</div>
     </div>
@@ -23,7 +23,7 @@
     <input type="number" id="accountId" #accountId placeholder="account id">
     <div *ngIf="accountById">
       <div>Account Id: {{accountById.id}}</div>
-      <div>type: {{accountById.type}}</div>
+      <div>type: {{accountById.type.type}}</div>
       <div>currency: {{accountById.currency}}</div>
       <div>balance: {{accountById.balance}}</div>
     </div>

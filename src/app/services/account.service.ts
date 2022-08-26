@@ -8,7 +8,7 @@ import {catchError} from "rxjs/operators";
   providedIn: 'root'
 })
 export class AccountService {
-  private accountsApiUrl = 'http://localhost:8080/api/accounts/';
+  private accountsApiUrl = 'http://localhost:8085/api/accounts/';
 
   constructor(
     private http: HttpClient) {
@@ -22,7 +22,7 @@ export class AccountService {
   }
 
   getAccount(id: string): Observable<Account> {
-    const accountApiUrl = 'http://localhost:8080/api/accounts/account/';
+    const accountApiUrl = 'http://localhost:8085/api/accounts/account/';
     const params = new HttpParams()
       .set('id', id)
 

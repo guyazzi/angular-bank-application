@@ -11,7 +11,7 @@ import {Account} from "../accounts/account";
 })
 export class CustomerService {
 
-  private customersApiUrl = 'http://localhost:8080/api/customers/';
+  private customersApiUrl = 'http://localhost:8085/api/customers/';
 
   constructor(
     private http: HttpClient) { }
@@ -24,7 +24,7 @@ export class CustomerService {
   }
 
   getCustomer(id: string): Observable<Customer> {
-    const customerApiUrl = 'http://localhost:8080/api/customers/customer/';
+    const customerApiUrl = 'http://localhost:8085/api/customers/customer/';
     const params = new HttpParams()
       .set('id', id)
 
@@ -34,7 +34,7 @@ export class CustomerService {
   }
 
   getCustomerAccounts(id: string): Observable<Account[]> {
-    const customerAccountsApiUrl = 'http://localhost:8080/api/customers/customer/accounts/';
+    const customerAccountsApiUrl = 'http://localhost:8085/api/customers/customer/accounts/';
     const params = new HttpParams()
       .set('id', id)
 
